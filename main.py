@@ -2,12 +2,15 @@
 # deactivate
 # uvicorn test:app --reload
 
+# git add .
+# git commit -m "変更内容"
+# git push
 
 
 from pydantic import BaseModel
 from fastapi import FastAPI
 from enum import Enum
-from database import *
+from sqlite.database import *
 
 createdb()
 
@@ -47,11 +50,10 @@ async def post_todo(todopost:Title):
 
 @app.put("/todos/{todo_put_id}")
 async def put_todo(todo_put_id: int,todoput:Title):
-    for n_put in todos:
-        if n_put["todo_id"] == todo_put_id:
-            n_put["title_content"] = todoput.title_content
-            n_put["priority"] = todoput.priority
-            return n_put
+
+    todo_put_list=[todoput.title_content,todoput.priority,todo_put_id]
+
+    putdb(todo_put_list)
 
 @app.delete("/todos/{todo_delete_id}")
 async def delete_todo(todo_delete_id: int):
