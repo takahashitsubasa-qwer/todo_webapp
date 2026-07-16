@@ -13,7 +13,6 @@ from enum import Enum
 from sqlite.database import *
 
 createdb()
-createdb_completion()
 
 class Priority(str,Enum):
     high = "high"
@@ -35,6 +34,7 @@ async def get_todo():
             "todo_id": row[0],
             "title_content": row[1],
             "priority": row[2],
+            "done": row[3]
         })
     return todo_list
 
@@ -61,13 +61,5 @@ async def delete_todo(todo_delete_id: int):
 
 @app.patch("/todos/{todo_patch_id}/done")
 async def patch_todo(todo_patch_id: int):
-    raw_data = getdb()
-    todo_list= []
-    for row in raw_data:
-        todo_list.append({
-            "todo_id": row[0],
-            "title_content": row[1],
-            "priority": row[2],
-        })
-    
-    patch_todo(todo_patch_id,todo_list)
+    patchdb(todo_patch_id)
+

@@ -1,3 +1,8 @@
+##環境構築
+py -m pip install fastapi pydantic streamlit requests pandas uvicorn
+
+
+
 ## 完成イメージ
 
 **Streamlit（画面）**
