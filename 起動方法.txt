@@ -3,3 +3,6 @@ windows
 uvicorn main:app --reload
 streamlit run streamlit.py
 
+# git add .
+# git commit -m "変更内容"
+# git push

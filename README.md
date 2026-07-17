@@ -167,6 +167,16 @@ FastAPI側のAPIはほとんど変更せず、データの保存先だけを変�
 
 このToDoアプリを最後まで作れるようになると、次に「家計簿」「在庫管理」「学習管理」なども同じ構成で作れるようになるので、Webアプリ開発の基礎力がかなり身につきます。
 
+##JWT
 
-
-https://docs.streamlit.io/develop/api-reference/layout/st.bottom
+ユーザー登録
+        ↓
+パスワードをハッシュ化
+        ↓
+ログイン
+        ↓
+JWT発行
+        ↓
+JWTをヘッダーに付けてAPI呼び出し
+        ↓
+自分のTodoだけ取得
