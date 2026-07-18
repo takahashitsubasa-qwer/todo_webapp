@@ -1,27 +1,12 @@
-# source .venv/bin/activate
-# deactivate
-# uvicorn test:app --reload
-
-# git add .
-# git commit -m "変更内容"
-# git push
-
-
 from pydantic import BaseModel
 from fastapi import FastAPI
 from enum import Enum
+
 from sqlite.database import *
+from schemas import Title
+
 
 createdb()
-
-class Priority(str,Enum):
-    high = "high"
-    middle = "middle"
-    low = "low"
-
-class Title(BaseModel):
-    title_content: str
-    priority: Priority
 
 app = FastAPI()
 
